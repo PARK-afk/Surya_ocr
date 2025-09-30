@@ -20,6 +20,11 @@ pip install -r requirements.txt
 ## 사용법
 
 ```bash
+image_path = "jpg 파일 경로 추가"
+```
+
+
+```bash
 python main.py
 ```
 

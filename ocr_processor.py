@@ -540,7 +540,7 @@ if __name__ == "__main__":
 	ocr_processor = OCRProcessor(max_height=2000, overlap_ratio=0.1, debug=True)
 	
 	# 이미지 경로
-	image_path = "/Users/parkjunseo/Downloads/박준서_졸업증명서.jpg"  # 여기에 실제 이미지 경로 입력
+	image_path = "Insert your image file route"  # 여기에 실제 이미지 경로 입력
 
 	# 이미지 파일이 존재하는지 확인
 	if not os.path.exists(image_path):

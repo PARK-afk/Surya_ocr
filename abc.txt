@@ -1,0 +1,25 @@
+⏺ 프로그램 실행 순서:
+
+  1. main.py:538-559 - 프로그램 시작점 (if __name__ == "__main__")
+    - OCRProcessor 초기화
+    - process_image_ocr() 호출
+  2. process_image_ocr() (309줄) - 메인 워크플로우
+  ↓
+    - smart_image_split() (326줄) - 이미지가 길면 분할
+  ↓
+    - enhanced_preprocess() (332줄) - 이미지 전처리 (크기조정, 블러, 대비)
+  ↓
+    - recognition_predictor (333줄) - Surya OCR 실행
+  ↓
+    - _merge_segment_results() (374줄) - 분할된 결과 병합 + 중복 제거
+  ↓
+    - _sort_by_position_with_segments() (377줄) - 읽기 순서대로 정렬
+  ↓
+    - fix_korean_ocr_errors() (388줄) - 한글 오인식 수정
+  ↓
+    - 신뢰도 통계 출력 (411-441줄)
+  3. paddle_reocr_low_conf_lines() (447줄) - (선택) 낮은 신뢰도 재검증
+    - PaddleOCR로 재처리
+
+  핵심은 process_image_ocr()이고, 이미지 크기에 따라 단일 처리(328-339줄) 또는 분할
+  처리(341-374줄)로 나뉩니다.
